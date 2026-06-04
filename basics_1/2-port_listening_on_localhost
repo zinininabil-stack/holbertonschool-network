@@ -1,3 +1,4 @@
 #!/usr/bin/bash
 # Script listeing to port 98 on localhost
 
+ifconfig | grep -oP '(?<=inet\s)\d+(\.\d+){3}'
