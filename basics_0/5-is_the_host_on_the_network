@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
-# Script that pings an IP adress
+set -euo pipefail
 
-if [ $# -eq 0 ]; then
+# Script that pings an IP address
+
+if [ "$#" -eq 0 ]; then
     echo "Usage: 5-is_the_host_on_the_network {IP_ADDRESS}"
-    exit
+    exit 1
 fi
-ping -c 5 "$1"`
+
+# Use -- to guard against arguments that start with -
+ping -c 5 -- "$1"
